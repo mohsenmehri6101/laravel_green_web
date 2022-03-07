@@ -11,6 +11,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
+        "phpoffice/phpspreadsheet": "dev-NumberFormatMask-Helpers",
         "zanysoft/laravel-zip": "^1.0"
     },
     "require-dev": {

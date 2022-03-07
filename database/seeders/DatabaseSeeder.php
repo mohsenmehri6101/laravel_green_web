@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $max = 40000;
+//        $max = 40000;
+        $max = 200;
         $this->command->getOutput()->progressStart($max);
         for ($i = 1; $i <= $max; $i++) {
             User::factory(1)->create()->each(function ($user) {

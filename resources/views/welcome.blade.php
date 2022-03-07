@@ -7,6 +7,7 @@
         <title>پروژه تست</title>
 
         <link href='http://awebfont.ir/css?id=1069' rel='stylesheet' type='text/css'>
+        <link href='{{ url('fonts/fonts.css') }}' rel='stylesheet' type='text/css'>
 
         <!-- Styles -->
         <style>

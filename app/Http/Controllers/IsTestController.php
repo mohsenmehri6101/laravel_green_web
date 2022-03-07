@@ -4,13 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\LazyCollection;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use ZanySoft\Zip\Zip;
 
 class IsTestController extends Controller
 {
     public function export()
     {
-        return "Export all user in here";
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $users = User::cursor()->remember();
+        $users->each(function($user,$i) use($sheet){
+            $i=$i+1;
+//            dump($user->name);
+            $sheet->setCellValue("A$i",$user->name);
+        });
+
+        $writer = new Xlsx($spreadsheet);
+
+//        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+//        header('Content-Disposition: attachment; filename="'. urlencode('hello').'"');
+//        return $writer->save('php://output');
     }
 
     public function step3()

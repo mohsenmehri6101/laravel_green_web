@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/php_info', function(){
+    return view('php_info');
+});
 Route::view('/', 'step1')->name('step1');
 Route::view('/step2', 'step2')->name('step2');
 Route::get ('/step3', 'IsTestController@step3')->name('step3');
